@@ -71,7 +71,7 @@ describe Azure::Storage::Common::Client do
       _(subject.storage_table_host).must_equal "#{proxy_uri}:#{Azure::Storage::Common::StorageServiceClientConstants::DEVSTORE_TABLE_HOST_PORT}"
       _(subject.storage_queue_host).must_equal "#{proxy_uri}:#{Azure::Storage::Common::StorageServiceClientConstants::DEVSTORE_QUEUE_HOST_PORT}"
       _(subject.storage_file_host).must_equal "#{proxy_uri}:#{Azure::Storage::Common::StorageServiceClientConstants::DEVSTORE_FILE_HOST_PORT}"
-      _(subject.signer).must_be_nil
+      assert_nil(subject.signer)
     end
 
     it "storage from env && storage from connection_string works" do

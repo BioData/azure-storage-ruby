@@ -27,7 +27,7 @@ require "azure/storage/file/file"
 
 module Azure::Storage
   include Azure::Storage::Common::Service
-  StorageService = Azure::Storage::Common::Service::StorageService
+  StorageService = Azure::Storage::Common::Service::StorageService unless const_defined?(:StorageService)
 
   module File
     class FileService < StorageService
@@ -221,7 +221,7 @@ module Azure::Storage
       # * +:request_id+              - String. Provides a client-generated, opaque value with a 1 KB character limit that is recorded
       #                                in the analytics logs when storage analytics logging is enabled.
       #
-      # * +:location_mode+           - LocationMode. Specifies the location mode used to decide 
+      # * +:location_mode+           - LocationMode. Specifies the location mode used to decide
       #                                which location the request should be sent to.
       #
       # See: https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/list-shares

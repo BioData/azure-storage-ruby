@@ -98,7 +98,7 @@ describe Azure::Storage::Blob::BlobService do
 
   describe "#list_containers" do
     let(:verb) { :get }
-    let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY} }
+    let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY } }
     let(:container_enumeration_result) { Azure::Storage::Common::Service::EnumerationResults.new }
 
     before {
@@ -134,7 +134,7 @@ describe Azure::Storage::Blob::BlobService do
       it "modifies the URI query parameters when provided a :prefix value" do
         query = { "prefix" => "pre" }
         local_call_options = { prefix: "pre" }.merge options
-        
+
         subject.expects(:containers_uri).with(query, local_call_options).returns(uri)
         subject.expects(:call).with(:get, uri, nil, {}, local_call_options).returns(response)
         subject.list_containers local_call_options
@@ -143,7 +143,7 @@ describe Azure::Storage::Blob::BlobService do
       it "modifies the URI query parameters when provided a :marker value" do
         query = { "marker" => "mark" }
         local_call_options = { marker: "mark" }.merge options
-        
+
         subject.expects(:containers_uri).with(query, local_call_options).returns(uri)
         subject.expects(:call).with(:get, uri, nil, {}, local_call_options).returns(response)
         subject.list_containers local_call_options
@@ -170,7 +170,7 @@ describe Azure::Storage::Blob::BlobService do
       it "modifies the URI query parameters when provided a :timeout value" do
         query = { "timeout" => "37" }
         local_call_options = { timeout: 37 }.merge options
-        
+
         subject.expects(:containers_uri).with(query, local_call_options).returns(uri)
         subject.expects(:call).with(:get, uri, nil, {}, local_call_options).returns(response)
         subject.list_containers local_call_options
@@ -282,13 +282,13 @@ describe Azure::Storage::Blob::BlobService do
 
       it "returns nil on success" do
         result = subject.delete_container container_name
-        _(result).must_equal nil
+        assert_nil(result)
       end
     end
 
     describe "#get_container_properties" do
       let(:verb) { :get }
-      let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY} }
+      let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY } }
       let(:container_properties) { {} }
 
       before {
@@ -324,7 +324,7 @@ describe Azure::Storage::Blob::BlobService do
 
     describe "#get_container_metadata" do
       let(:verb) { :get }
-      let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY} }
+      let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY } }
       let(:container_metadata) { { "MetadataKey" => "MetaDataValue", "MetadataKey1" => "MetaDataValue1" } }
       let(:response_headers) { { "x-ms-meta-MetadataKey" => "MetaDataValue", "x-ms-meta-MetadataKey1" => "MetaDataValue1" } }
 
@@ -363,7 +363,7 @@ describe Azure::Storage::Blob::BlobService do
 
     describe "#get_container_acl" do
       let(:verb) { :get }
-      let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY} }
+      let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY } }
       let(:signed_identifier) { Azure::Storage::Common::Service::SignedIdentifier.new }
       let(:signed_identifiers) { [signed_identifier] }
 
@@ -539,14 +539,14 @@ describe Azure::Storage::Blob::BlobService do
 
       it "returns nil on success" do
         result = subject.set_container_metadata container_name, container_metadata
-        _(result).must_equal nil
+        assert_nil(result)
       end
     end
 
     describe "#list_blobs" do
       let(:verb) { :get }
       let(:query) { { "comp" => "list" } }
-      let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY} }
+      let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY } }
       let(:blob_enumeration_results) { Azure::Storage::Common::Service::EnumerationResults.new }
 
       before {
@@ -1264,7 +1264,7 @@ describe Azure::Storage::Blob::BlobService do
       describe "#list_blob_blocks" do
         let(:verb) { :get }
         let(:query) { { "comp" => "blocklist", "blocklisttype" => "all" } }
-        let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY} }
+        let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY } }
         let(:blob_block_list) { [Azure::Storage::Blob::Block.new] }
 
         before {
@@ -1341,7 +1341,7 @@ describe Azure::Storage::Blob::BlobService do
       describe "#list_page_blob_ranges" do
         let(:verb) { :get }
         let(:query) { { "comp" => "pagelist" } }
-        let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY} }
+        let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY } }
         let(:page_list) { [[0, 511], [512, 1023]] }
 
         before {
@@ -1512,7 +1512,7 @@ describe Azure::Storage::Blob::BlobService do
           subject.stubs(:call).with(verb, uri, nil, request_headers, {}).returns(response)
         }
 
-        it 'set the page blob\'s sequence number' do
+        it "set the page blob's sequence number" do
           options = { sequence_number_action: action, sequence_number: number }
           subject.expects(:call).with(verb, uri, nil, request_headers, options).returns(response)
           request_headers["x-ms-sequence-number-action"] = action.to_s
@@ -1520,7 +1520,7 @@ describe Azure::Storage::Blob::BlobService do
           subject.set_sequence_number container_name, blob_name, action, number
         end
 
-        it 'set the page blob\'s sequence number to the higher of current or the value in the request' do
+        it "set the page blob's sequence number to the higher of current or the value in the request" do
           action = :max
           options = { sequence_number_action: action, sequence_number: number }
           subject.expects(:call).with(verb, uri, nil, request_headers, options).returns(response)
@@ -1529,7 +1529,7 @@ describe Azure::Storage::Blob::BlobService do
           subject.set_sequence_number container_name, blob_name, action, number
         end
 
-        it 'increase the page blob\'s sequence number by 1' do
+        it "increase the page blob's sequence number by 1" do
           action = :increment
           options = { sequence_number_action: action, sequence_number: nil }
           subject.expects(:call).with(verb, uri, nil, request_headers, options).returns(response)
@@ -1537,7 +1537,7 @@ describe Azure::Storage::Blob::BlobService do
           subject.set_sequence_number container_name, blob_name, action, nil
         end
 
-        it 'increase the page blob\'s sequence number should ignore the number' do
+        it "increase the page blob's sequence number should ignore the number" do
           action = :increment
           options = { sequence_number_action: action, sequence_number: number }
           subject.expects(:call).with(verb, uri, nil, request_headers, options).returns(response)
@@ -1822,7 +1822,7 @@ describe Azure::Storage::Blob::BlobService do
 
         it "returns nil on success" do
           result = subject.set_blob_properties container_name, blob_name
-          _(result).must_equal nil
+          assert_nil(result)
         end
 
         describe "when the options Hash is used" do
@@ -1901,7 +1901,7 @@ describe Azure::Storage::Blob::BlobService do
       describe "#set_blob_metadata" do
         let(:verb) { :put }
         let(:blob_metadata) { { "MetadataKey" => "MetaDataValue", "MetadataKey1" => "MetaDataValue1" } }
-        let(:request_headers) { { "x-ms-meta-MetadataKey" => "MetaDataValue", "x-ms-meta-MetadataKey1" => "MetaDataValue1"} }
+        let(:request_headers) { { "x-ms-meta-MetadataKey" => "MetaDataValue", "x-ms-meta-MetadataKey1" => "MetaDataValue1" } }
 
         before {
           query.update("comp" => "metadata")
@@ -1922,13 +1922,13 @@ describe Azure::Storage::Blob::BlobService do
 
         it "returns nil on success" do
           result = subject.set_blob_metadata container_name, blob_name, blob_metadata
-          _(result).must_equal nil
+          assert_nil(result)
         end
       end
 
       describe "#get_blob_properties" do
         let(:verb) { :head }
-        let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY} }
+        let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY } }
         let(:request_headers) { {} }
 
         before {
@@ -1978,7 +1978,7 @@ describe Azure::Storage::Blob::BlobService do
 
       describe "#get_blob_metadata" do
         let(:verb) { :get }
-        let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY} }
+        let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY } }
         let(:request_headers) { {} }
 
         before {
@@ -2033,7 +2033,7 @@ describe Azure::Storage::Blob::BlobService do
 
       describe "#get_blob" do
         let(:verb) { :get }
-        let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY} }
+        let(:options) { { request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY } }
 
         before {
           response.stubs(:success?).returns(true)
@@ -2162,7 +2162,7 @@ describe Azure::Storage::Blob::BlobService do
 
         it "returns nil on success" do
           result = subject.delete_blob container_name, blob_name
-          _(result).must_equal nil
+          assert_nil(result)
         end
 
         describe "when snapshot is provided" do
@@ -2587,7 +2587,7 @@ describe Azure::Storage::Blob::BlobService do
 
           it "returns nil on success" do
             result = subject.release_blob_lease container_name, blob_name, lease_id
-            _(result).must_equal nil
+            assert_nil(result)
           end
         end
 
