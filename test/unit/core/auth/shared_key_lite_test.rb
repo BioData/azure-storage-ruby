@@ -39,7 +39,7 @@ describe Azure::Core::Auth::SharedKeyLite do
     end
 
     it 'ignores standard headers other than Content-MD5, Content-Type, and Date' do
-      subject.sign(verb, uri, headers.merge({'Content-Encoding' => 'foo'})).must_equal 'account-name:vVFnj/+27JFABZgpt5H8g/JVU2HuWFnjv5aeUIxQvBE='
+      subject.sign(verb, uri, headers.merge({ 'Content-Encoding' => 'foo' })).must_equal 'account-name:vVFnj/+27JFABZgpt5H8g/JVU2HuWFnjv5aeUIxQvBE='
     end
 
     it 'throws IndexError when there is no Date header' do

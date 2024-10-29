@@ -37,12 +37,12 @@ Gem::Specification.new do |s|
   s.homepage    = "http://github.com/azure/azure-storage-ruby"
   s.license     = "MIT"
   s.files       = `git ls-files ./lib/azure/storage/common/`.split("\n") << "./lib/azure/storage/common.rb"
-  s.files       += `git ls-files ./lib/azure/core/`.split("\n") << "./lib/azure/core.rb" << "./lib/azure/http_response_helper.rb"
+  s.files += `git ls-files ./lib/azure/core/`.split("\n") << "./lib/azure/core.rb" << "./lib/azure/http_response_helper.rb"
 
   s.required_ruby_version = ">= 2.3.0"
 
   s.add_runtime_dependency('faraday',                 '~> 2.0')
-  s.add_runtime_dependency('faraday-follow_redirects','~> 0.3.0')
+  s.add_runtime_dependency('faraday-follow_redirects', '~> 0.3.0')
   s.add_runtime_dependency('faraday-net_http_persistent', '~> 2.0')
   s.add_runtime_dependency("net-http-persistent",     '~> 4.0')
   s.add_runtime_dependency("nokogiri",                "~> 1", ">= 1.10.8")

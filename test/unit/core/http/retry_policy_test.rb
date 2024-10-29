@@ -45,7 +45,7 @@ describe Azure::Core::Http::RetryPolicy do
   end
 
   describe "RetryPolicy retries with a new URL" do
-    let(:retry_count) { 1 } 
+    let(:retry_count) { 1 }
     let(:retry_interval) { 1 }
 
     subject { Azure::Storage::Common::Core::Filter::LinearRetryPolicyFilter.new retry_count, retry_interval }

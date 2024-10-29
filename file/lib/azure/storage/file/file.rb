@@ -130,7 +130,7 @@ module Azure::Storage::File
   # * +:timeout+                   - Integer. A timeout in seconds.
   # * +:request_id+                - String. Provides a client-generated, opaque value with a 1 KB character limit that is recorded
   #                                  in the analytics logs when storage analytics logging is enabled.
-  # * +:location_mode+             - LocationMode. Specifies the location mode used to decide 
+  # * +:location_mode+             - LocationMode. Specifies the location mode used to decide
   #                                  which location the request should be sent to.
   #
   # See https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/get-file
@@ -172,7 +172,7 @@ module Azure::Storage::File
   # * +:timeout+                   - Integer. A timeout in seconds.
   # * +:request_id+                - String. Provides a client-generated, opaque value with a 1 KB character limit that is recorded
   #                                  in the analytics logs when storage analytics logging is enabled.
-  # * +:location_mode+             - LocationMode. Specifies the location mode used to decide 
+  # * +:location_mode+             - LocationMode. Specifies the location mode used to decide
   #                                  which location the request should be sent to.
   #
   # See https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/get-file-properties
@@ -369,7 +369,7 @@ module Azure::Storage::File
   # * +:timeout+                   - Integer. A timeout in seconds.
   # * +:request_id+                - String. Provides a client-generated, opaque value with a 1 KB character limit that is recorded
   #                                  in the analytics logs when storage analytics logging is enabled.
-  # * +:location_mode+             - LocationMode. Specifies the location mode used to decide 
+  # * +:location_mode+             - LocationMode. Specifies the location mode used to decide
   #                                  which location the request should be sent to.
   #
   # See https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/list-ranges
@@ -413,7 +413,7 @@ module Azure::Storage::File
   # * +:timeout+                  - Integer. A timeout in seconds.
   # * +:request_id+               - String. Provides a client-generated, opaque value with a 1 KB character limit that is recorded
   #                                 in the analytics logs when storage analytics logging is enabled.
-  # * +:location_mode+            - LocationMode. Specifies the location mode used to decide 
+  # * +:location_mode+            - LocationMode. Specifies the location mode used to decide
   #                                 which location the request should be sent to.
   #
   # See https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/get-file-metadata

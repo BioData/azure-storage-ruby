@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #-------------------------------------------------------------------------
 # # Copyright (c) Microsoft and contributors. All rights reserved.
 #
@@ -44,5 +46,4 @@ module Azure
       autoload :SignerFilter,                 'azure/core/http/signer_filter'
     end
   end
-
 end

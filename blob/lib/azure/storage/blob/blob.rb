@@ -293,7 +293,7 @@ module Azure::Storage
           StorageService.with_header headers, "x-ms-sequence-number-action", options[:sequence_number_action]
 
           if options[:sequence_number_action].to_s != "increment" && options[:sequence_number]
-            StorageService.with_header headers, "x-ms-blob-sequence-number", options[:sequence_number] 
+            StorageService.with_header headers, "x-ms-blob-sequence-number", options[:sequence_number]
           end
         end
 

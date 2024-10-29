@@ -69,7 +69,7 @@ module Azure
     def Fixtures.xml?(fixture)
       file?("#{fixture}.xml")
     end
-    
+
     class FixtureRetryPolicy < Azure::Core::Http::RetryPolicy
       def initialize
         super &:should_retry?
@@ -91,6 +91,5 @@ module Azure
         @count >= 0
       end
     end
-
   end
 end

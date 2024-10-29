@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #-------------------------------------------------------------------------
 # # Copyright (c) Microsoft and contributors. All rights reserved.
 #
@@ -18,27 +20,26 @@ module Azure
   module Core
     # A base class for Service implementations
     class Service
-
       # Create a new instance of the Service
       #
       # @param host     [String] The hostname. (optional, Default empty)
       # @param options  [Hash] options including {:client} (optional, Default {})
-      def initialize(host='', options = {})
+      def initialize(host = '', options = {})
         @host = host
         @client = options[:client] || Azure
       end
 
       attr_accessor :host, :client
 
-      def call(method, uri, body=nil, headers={})
+      def call(method, uri, body = nil, headers = {})
         request = Core::Http::HttpRequest.new(method, uri, body: body, headers: headers, client: @client)
         yield request if block_given?
         request.call
       end
 
-      def generate_uri(path='', query={})
+      def generate_uri(path = '', query = {})
         uri = URI.parse(File.join(host, path))
-        uri.query = URI.encode_www_form(query) unless query == nil or query.empty?
+        uri.query = URI.encode_www_form(query) unless (query == nil) || query.empty?
         uri
       end
     end

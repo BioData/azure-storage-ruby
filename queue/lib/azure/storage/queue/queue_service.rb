@@ -191,7 +191,7 @@ module Azure::Storage
       # * +:timeout+                   - Integer. A timeout in seconds.
       # * +:request_id+                - String. Provides a client-generated, opaque value with a 1 KB character limit that is recorded
       #                                  in the analytics logs when storage analytics logging is enabled.
-      # * +:location_mode+             - LocationMode. Specifies the location mode used to decide 
+      # * +:location_mode+             - LocationMode. Specifies the location mode used to decide
       #                                  which location the request should be sent to.
       #
       # NOTE: Metadata requested with the :metadata parameter must have been stored in
@@ -324,7 +324,7 @@ module Azure::Storage
       # * +:timeout+                   - Integer. A timeout in seconds.
       # * +:request_id+                - String. Provides a client-generated, opaque value with a 1 KB character limit that is recorded
       #                                  in the analytics logs when storage analytics logging is enabled.
-      # * +:location_mode+             - LocationMode. Specifies the location mode used to decide 
+      # * +:location_mode+             - LocationMode. Specifies the location mode used to decide
       #                                  which location the request should be sent to.
       #
       # See http://msdn.microsoft.com/en-us/library/azure/dd179384
@@ -394,7 +394,7 @@ module Azure::Storage
       # * +:timeout+                   - Integer. A timeout in seconds.
       # * +:request_id+                - String. Provides a client-generated, opaque value with a 1 KB character limit that is recorded
       #                                  in the analytics logs when storage analytics logging is enabled.
-      # * +:location_mode+             - LocationMode. Specifies the location mode used to decide 
+      # * +:location_mode+             - LocationMode. Specifies the location mode used to decide
       #                                  which location the request should be sent to.
       #
       # See http://msdn.microsoft.com/en-us/library/azure/jj159101
@@ -567,7 +567,7 @@ module Azure::Storage
       # * +:timeout+                   - Integer. A timeout in seconds.
       # * +:request_id+                - String. Provides a client-generated, opaque value with a 1 KB character limit that is recorded
       #                                  in the analytics logs when storage analytics logging is enabled.
-      # * +:location_mode+             - LocationMode. Specifies the location mode used to decide 
+      # * +:location_mode+             - LocationMode. Specifies the location mode used to decide
       #                                  which location the request should be sent to.
       #
       # See http://msdn.microsoft.com/en-us/library/azure/dd179472

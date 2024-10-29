@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #-------------------------------------------------------------------------
 # # Copyright (c) Microsoft and contributors. All rights reserved.
 #
@@ -22,7 +24,6 @@ module Azure
       PRE = nil unless defined? PRE
 
       class << self
-
         # @return [String]
         def to_s
           [MAJOR, MINOR, UPDATE].join('.') + (PRE.nil? ? '' : "-#{PRE}")

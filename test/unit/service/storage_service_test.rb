@@ -304,7 +304,7 @@ describe Azure::Storage::Common::Service::StorageService do
     end
 
     it "modifies the URI query parameters when provided a :timeout value" do
-      timeout_option = { timeout: 30 } 
+      timeout_option = { timeout: 30 }
       query.update("timeout" => "30")
       call_options = timeout_option.merge options
       subject.expects(:service_stats_uri).with(query, call_options).returns(service_stats_uri)
@@ -403,13 +403,13 @@ describe Azure::Storage::Common::Service::StorageService do
       end
 
       it "primary location should work" do
-        _(subject.generate_uri("", nil, { location_mode: Azure::Storage::Common::LocationMode::PRIMARY_ONLY}).to_s).must_equal "http://dumyhost.uri/"
+        _(subject.generate_uri("", nil, { location_mode: Azure::Storage::Common::LocationMode::PRIMARY_ONLY }).to_s).must_equal "http://dumyhost.uri/"
       end
 
       it "secondary location should work" do
-        _(subject.generate_uri("", nil, 
-          { location_mode: Azure::Storage::Common::LocationMode::SECONDARY_ONLY, 
-            request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY}).to_s).must_equal "http://dumyhost-secondary.uri/"
+        _(subject.generate_uri("", nil,
+          { location_mode: Azure::Storage::Common::LocationMode::SECONDARY_ONLY,
+            request_location_mode: Azure::Storage::Common::RequestLocationMode::PRIMARY_OR_SECONDARY }).to_s).must_equal "http://dumyhost-secondary.uri/"
       end
 
       it "raise exception when primary only" do

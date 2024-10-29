@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #-------------------------------------------------------------------------
 # Copyright 2013 Microsoft Open Technologies, Inc.
 #
@@ -88,7 +90,7 @@ module Azure
         name = OpenSSL::X509::Name.new([['CN', 'Azure Management Certificate']])
         cert.subject = cert.issuer = name
         cert.not_before = Time.now
-        cert.not_after = cert.not_before + (60*60*24*365)
+        cert.not_after = cert.not_before + (60 * 60 * 24 * 365)
         cert.public_key = rsa.public_key
         cert.sign(rsa, OpenSSL::Digest::SHA1.new)
         cert

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #-------------------------------------------------------------------------
 # # Copyright (c) Microsoft and contributors. All rights reserved.
 #
@@ -22,7 +24,7 @@ module Azure
         # Public: Initialize a new response.
         #
         # http_response - A Net::HTTPResponse.
-        def initialize(http_response, uri='')
+        def initialize(http_response, uri = '')
           @http_response = http_response
           @uri = uri
         end
@@ -84,7 +86,7 @@ module Azure
             @status = code
             @body = body
             @headers = headers
-            @headers.each { |k,v|
+            @headers.each { |k, v|
               @headers[k] = [v] unless v.respond_to? 'first'
             }
           end

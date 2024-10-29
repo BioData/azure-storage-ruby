@@ -36,13 +36,13 @@ describe Azure::Storage::Common::Core::TokenCredential do
       current = nil
       15.times do |i|
         threads[i] = Thread.new do
-          sleep(rand(0)/10.0)
+          sleep(rand(0) / 10.0)
           Thread.current["index"] = i
           token_credential.renew_token "refreshed_token_#{i}"
           current = i
         end
       end
-      
+
       threads.each { |t| t.join }
       _(current).wont_be_nil
       _(token_credential.token).must_equal "refreshed_token_#{current}"
